@@ -9,7 +9,7 @@ require('dotenv').config({ silent: true });
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('./webpack.config');
+const webpackConfig = require('../webpack.config');
 
 // CONSTANTS
 const PORT = process.env.PORT || 8000;
@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 app.use('/api', require('./routes/api'));
 
 // ALLOW REACT ROUTING
-app.use('*', (req, res) => res.sendFile(path.join(__dirname, 'build/index.html')));
+app.use('*', (req, res) => res.sendFile(path.join(__dirname, '../public/index.html')));
 
 // SERVER LISTEN
 app.listen(PORT, (err) => console.log(err || `Express listening on port ${PORT}`));
