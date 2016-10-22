@@ -11,11 +11,12 @@ require('dotenv').config();
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config');
 
+
 // APP DECLARATION
 const app = express();
 const server = http.createServer(app);
 
-// WEBPACK CONFIG
+//WEBPACK CONFIG
 const compiler = webpack(webpackConfig);
 app.use(require('webpack-dev-middleware')(compiler, {
  noInfo: true,
@@ -23,8 +24,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 app.use(require('webpack-hot-middleware')(compiler));
 
+
 // GENERAL MIDDLEWARE
-app.use(express.static('src'));
+app.use(express.static('build'));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,8 +35,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', require('./routes/api'));
 
 app.get('*', (req, res) => {
- const indexPath = path.join(__dirname, '../src/index.html');
- res.sendFile(indexPath);
+  let filepath = path.resolve('./build/index.html');
+  res.sendFile(filepath);
 });
 
 // SERVER LISTEN

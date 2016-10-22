@@ -11,8 +11,8 @@ export default class Header extends Component {
             <div className="col-xs-12">
               <div className="jm-header-text">
                 <img className="img-responsive img-circle jm-header-img" src="assets/imgs/JoshuaMaddox.jpg" alt="Head Shot of Joshua Maddox" />
-                <h1>Joshua Maddox</h1>
-                <p>I am passionate about using marketing, code, design and entrepreneurship as tools for social good and poverty elimination. I've often said I would've loved to have been a full-time student; luckily, I've chosen a career that requires an insatiable appetite for learning...or else.  </p>
+                <h1></h1>
+                <p></p>
               </div>
             </div>
             <div className="col-sm-4">
