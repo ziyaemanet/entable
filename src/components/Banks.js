@@ -24,7 +24,7 @@ export default class Banks extends Component {
   }
 
   _onChange = () => {
-    this.setState({});
+    this.setState({ banks: BankStore.getBanks() });
   }
 
   render() {

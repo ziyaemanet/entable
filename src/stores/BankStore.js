@@ -1,6 +1,8 @@
 import {EventEmitter} from 'events';
 import AppDispatcher from '../AppDispatcher';
 
+let _banks = [];
+
 class EntableStore extends EventEmitter {
   constructor () {
     super();
@@ -20,6 +22,10 @@ class EntableStore extends EventEmitter {
 
   stopListening(callback) {
     this.removeListener('CHANGE', callback);
+  }
+
+  getBanks(){
+    return _banks;
   }
 }
 
