@@ -7,8 +7,6 @@ import Home from './components/Home';
 import BankDetail from './components/BankDetail';
 import Donation from './components/Donation';
 
-import './stores/EntableStore';
-
 render(
   <Router history={browserHistory}>
     <Route path="/" component={Navbar}>

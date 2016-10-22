@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import BankStore from '../stores/BankStore';
-import BankActions from  '../actions/BankActions';
+// import BankStore from '../stores/BankStore';
+// import BankActions from  '../actions/BankActions';
 
 export default class Banks extends Component {
   constructor() {
@@ -15,17 +15,17 @@ export default class Banks extends Component {
     };
   }
 
-  componentWillMount() {
-    BankStore.startListening(this._onChange);
-  }
-
-  componentWillUnmount() {
-    BankStore.stopListening(this._onChange);
-  }
-
-  _onChange = () => {
-    this.setState({ banks: BankStore.getBanks() });
-  }
+  // componentWillMount() {
+  //   BankStore.startListening(this._onChange);
+  // }
+  //
+  // componentWillUnmount() {
+  //   BankStore.stopListening(this._onChange);
+  // }
+  //
+  // _onChange = () => {
+  //   this.setState({ banks: BankStore.getBanks() });
+  // }
 
   render() {
     let { banks } = this.state;
