@@ -1,61 +1,44 @@
-const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
-require('dotenv').config({ silent: true });
-
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('../webpack.config');
-
 // CONSTANTS
 const PORT = process.env.PORT || 8000;
-const MONGO_URI = 'mongodb://localhost/test';
 
-// INITALIZE SERVER
+// PACKAGE REQUIRES
+const http = require('http');
+const bodyParser = require('body-parser');
+const express = require('express');
+const morgan = require('morgan');
+const path = require('path');
+require('dotenv').config();
+const webpack = require('webpack');
+const webpackConfig = require('../webpack.config');
+
+// APP DECLARATION
 const app = express();
-
-
-// CONFIG MONGOOSE
-mongoose.Promise = Promise;
-
-mongoose.connect(MONGO_URI, (err) => {
-  console.log(err || `Mongo connected to ${MONGO_URI}`);
-});
-
-// 3RD PARTY MIDDLEWARE
-app.use(morgan('combined'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
-
-// GENERAL MIDDLEWARE
-app.use(express.static('build'));
+const server = http.createServer(app);
 
 // WEBPACK CONFIG
 const compiler = webpack(webpackConfig);
-app.use(webpackHotMiddleware(compiler));
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: webpackConfig.output.publicPath,
-  noInfo: true,
-  hot: true,
-  path: webpackConfig.output.path,
+app.use(require('webpack-dev-middleware')(compiler, {
+ noInfo: true,
+ publicPath: webpackConfig.output.publicPath,
 }));
+app.use(require('webpack-hot-middleware')(compiler));
 
-// ERROR CHECKING
-app.use((req, res, next) => {
-  res.handleSend = (err, data) => res.status(err ? 400 : 200).send(err || data);
-  next();
-});
+// GENERAL MIDDLEWARE
+app.use(express.static('src'));
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // ROUTES
 app.use('/api', require('./routes/api'));
 
-// ALLOW REACT ROUTING
-app.use('*', (req, res) => res.sendFile(path.join(__dirname, '../public/index.html')));
+app.get('*', (req, res) => {
+ const indexPath = path.join(__dirname, '../src/index.html');
+ res.sendFile(indexPath);
+});
 
 // SERVER LISTEN
-app.listen(PORT, (err) => console.log(err || `Express listening on port ${PORT}`));
+server.listen(PORT, (err) => {
+ if (err) throw err;
+ process.stdout.write(`Server listening at http://localhost:${PORT}`);
+});

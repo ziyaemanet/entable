@@ -1,0 +1,438 @@
+.navbar {
+  border-radius: 0;
+}
+
+
+/*
+COLORS USED:
+coral #e14658
+coral shadow #6f1822
+coral hover #d14152
+navy #22252c
+navy hover & Shadow #1d2026
+
+FONTS USED:
+
+OSWALD - H tags and Button Text
+MONTSERRAT - Body Text
+*/
+
+/* ================= FONTS ================= */
+
+/*@font-face { font-family: Oswald; font-weight: bold; src: url('assets/fonts/oswald/Oswald-Bold.ttf'); }
+@font-face { font-family: Oswald-Light; src: url('assets/fonts/oswald/Oswald-Light.ttf'); }
+@font-face { font-family: Quattrocento; src: url('assets/fonts/quattrocento/Quattrocento-Regular.ttf');}  
+@font-face { font-family: Quattrocento-Bold; font-weight: bold; src: url('assets/fonts/quattrocento/Quattrocento-Bold.ttf');}*/
+
+/* ================= NAVBAR ================= */
+html, body {
+  overflow-x:hidden; 
+  padding: 0px;
+  margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  color: #333;
+}
+
+h1 {
+  font-size: 96px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2{
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+h3{
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+h4{
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: 'Quattrocento', serif;
+  font-size: 16px;
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+
+.btn { /*ADJUST BUTTON APPERANCE HERE*/
+  font-family: 'Oswald', sans-serif;
+  background: none;
+  font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 0;
+  border: 8px solid #fff;
+  text-decoration: none;
+}
+
+.btn:hover, 
+.btn:active, 
+.btn:focus {
+  background: rgba(255, 255, 255, .3);
+  outline: none !important;
+  color: #fff !important;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.btn:hover {
+  color: #fff;
+}
+
+.jm-bordered-heading { /*CREATES BORDER AROUND H4 TAGS USING SPANS*/
+  border: 8px solid;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+}
+
+/* ================= HEADER ================= */
+
+.jm-main-header  {
+  width:100%;
+  /*background-image:url('enable-women-to-be-the-boss.jpg'); /*ADJUST HEADER IMAGE HERE*/
+  background-size:cover;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.jm-header-text h1 {
+  color: #fff;  
+}
+
+.jm-header-text p {
+  font-size: 1.5em;
+}
+
+.jm-main-header .col-sm-4 {
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.jm-header-img {
+  margin: 0 auto;
+  width: 200px;
+  border: 8px solid #fff;
+}
+
+/* ================= RESUME ================= */
+
+.jm-resume {
+  text-align: center;
+}
+
+.jm-resume-toggle-two, 
+.jm-resume-toggle-three,
+.jm-resume-toggle-six {
+    background-color: #333;
+    color: #fff;  
+  }
+.jm-resume-toggle-two h2, 
+.jm-resume-toggle-three h2,
+.jm-resume-toggle-six h2,
+.jm-resume-toggle-two h4, 
+.jm-resume-toggle-three h4,
+.jm-resume-toggle-six h4 {
+  color: #fff;
+}
+  
+.jm-resume-box {
+  padding: 40px;
+}
+
+/* ================= CALL TO ACTION ================= */
+.jm-call-to-action {
+  background: #333;
+  text-align: center;
+  color: #fff;
+  padding: 40px 0;
+}
+
+.jm-call-to-action h2 {
+  color: #fff;
+}
+
+.jm-call-to-action h2:hover {
+  background: rgba(255, 255, 255, .3);
+  outline: none !important;
+  color: #fff !important;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+/* ================= QUICK POINTS ================= */
+
+.jm-quick-points {
+  text-align: center;
+  padding: 40px;
+}
+
+/* ================= GALLERY ================= */
+
+.jm-gallery {
+  background-color: #333;
+  padding: 40px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.jm-gallery .img-responsive {
+  margin: 0 auto;
+}
+
+.jm-gallery h1, .jm-gallery h4 {
+  color: #fff;
+}
+
+/*.jm-gallery .img-responsive {
+  filter: url(filters.svg#grayscale);
+  /* Firefox 3.5+ */
+ /* filter: gray;*/
+  /* IE6-9 */
+ /* -webkit-filter: grayscale(1);*/
+  /* Google Chrome & Safari 6+ */
+/*}*/
+.jm-gallery .img-responsive:hover {
+  filter: none;
+  -webkit-filter: none;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.8s ease;
+}
+
+/* ================= ARTICLES ================= */
+
+.jm-article {
+  text-align: center;
+}
+
+.jm-article h1 {
+  padding: 40px;  
+}
+
+.jm-article h2 {
+  color: #fff;  
+}
+
+/*.jm-article-img {
+  background: url(../imgs/joshua-maddox-ux-tips.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.jm-article-img-two {
+  background: url(../imgs/coding-960-500.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.jm-article-img-three {
+  background: url(../imgs/30-minutes-photo-joshua-maddox.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.jm-article-img-four {
+  background: url(../imgs/joshua_maddox_cinderhouse_creative.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.jm-article-img-five {
+  background: url(../imgs/blank-960px-500px.jpg) no-repeat center center;
+  background-size: cover;
+}*/
+
+.jm-centerfy {
+  padding: 0 75px;
+    -webkit-display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.jm-article-img h2 {
+  color: #fff;
+}
+
+.jm-btn-article {
+  color: #333;
+  border: 8px solid #333;
+}
+
+.jm-btn-article:hover, 
+.jm-btn-article:active, 
+.jm-btn-article:focus {
+  color: #333;
+  background: rgba(50, 50, 50, .7);
+}
+
+.jm-test-row{
+  padding: 0;
+  margin: 0;
+}
+
+.jm-centerfy a {
+  color: #333;
+}
+
+.jm-centerfy a:hover,
+.jm-centerfy a:active,
+.jm-centerfy a:focus
+.jm-centerfy a:visited {
+  color: #fff;
+}
+
+/* ================= SOCIAL MEDIA  ================= */
+
+.jm-social-block {
+  background-color: #333;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.jm-social-block:hover,
+.jm-social-block:active,
+.jm-social-block:focus {
+  background-color: #111;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.jm-social-block i {
+  color: #fff;
+  font-size: 65px;
+}
+
+/* ================= MEDIA QUERIES ================= */ 
+
+@media only screen and (max-width : 3840px) {
+
+  .jm-main-header { /*ADJUST MAIN IMAGE MIN HEIGHT AT BREAK*/
+    min-height: 1000px;
+  }
+
+  .jm-header-text { /*ADJUST POSITION OF TEXT AND BUTTONS IN HEADER AT BREAK*/
+    margin-top: 250px;
+  }
+
+  .jm-resume-box {
+    padding: 40px 160px;
+  }
+
+}
+
+@media only screen and (max-width : 1920px) {
+
+  .jm-main-header { /*ADJUST MAIN IMAGE MIN HEIGHT AT BREAK*/
+    min-height: 800px;
+  }
+
+  .jm-header-text { /*ADJUST POSITION OF TEXT AND BUTTONS IN HEADER AT BREAK*/
+    margin-top:150px;
+  }
+
+  .jm-resume-box { /*ADJUST SPACE ON SIDES OF RESUME BOXES*/
+    padding: 40px;
+  }
+
+}
+
+
+@media only screen and (max-width : 1200px) {
+  
+}
+
+@media only screen and (max-width : 979px) {
+  .jm-gallery p {
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+
+  .jm-main-header { /*ADJUST MAIN IMAGE MIN HEIGHT AT BREAK*/
+    min-height: 400px;
+  }
+  .jm-header-text { /*ADJUST POSITION OF TEXT AND BUTTONS IN HEADER AT BREAK*/
+    margin-top: 85px;
+  }
+
+  .jm-resume-toggle-three { /*ALLOWS RESUME BOX STYLING TO ALTERNATE COLORS ON MEIDA BREAK*/
+    background-color: #fff;
+    color: #333;
+  }
+
+  .jm-resume-toggle-three h2, /*ALLOWS RESUME BOX STYLING TO ALTERNATE COLORS ON MEIDA BREAK*/
+  .jm-resume-toggle-three h4 {
+    color: #333;
+  }
+
+  .jm-resume-toggle-four { /*ALLOWS RESUME BOX STYLING TO ALTERNATE COLORS ON MEIDA BREAK*/
+    background-color: #333;
+    color: #fff;
+  }
+
+  .jm-resume-toggle-four h2, /*ALLOWS RESUME BOX STYLING TO ALTERNATE COLORS ON MEIDA BREAK*/
+  .jm-resume-toggle-four h4 {
+    color: #fff;
+  }
+
+  h1 {
+    font-size: 76px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width : 480px) {
+
+  .jm-main-header { /*ADJUST MAIN IMAGE MIN HEIGHT AT BREAK*/
+    min-height: 400px;
+  }
+
+  .jm-header-text { /*ADJUST POSITION OF TEXT AND BUTTONS IN HEADER AT BREAK*/
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width : 320px) {
+
+  .jm-main-header { /*ADJUST MAIN IMAGE MIN HEIGHT AT BREAK*/
+    min-height: 400px;
+  }
+}
