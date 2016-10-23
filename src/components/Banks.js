@@ -16,6 +16,12 @@ export default class Banks extends Component {
     };
 
     this.toBank = this.toBank.bind(this)
+    this.toBank2 = this.toBank2.bind(this)
+    this.toBank3 = this.toBank3.bind(this)
+    this.toBank4 = this.toBank4.bind(this)
+    this.toBank5 = this.toBank5.bind(this)
+    this.toBank6 = this.toBank6.bind(this)
+    this.toBank7 = this.toBank7.bind(this)
     this.toFund = this.toFund.bind(this)
   }
 
@@ -33,6 +39,25 @@ export default class Banks extends Component {
 
   toBank() {
     browserHistory.push('/bank')
+  }
+
+  toBank2() {
+    browserHistory.push('/bank2')
+  }
+  toBank3() {
+    browserHistory.push('/bank3')
+  }
+  toBank4() {
+    browserHistory.push('/bank4')
+  }
+  toBank5() {
+    browserHistory.push('/bank5')
+  }
+  toBank6() {
+    browserHistory.push('/bank6')
+  }
+  toBank7() {
+    browserHistory.push('/bank7')
   }
 
   toFund() {
@@ -111,7 +136,7 @@ export default class Banks extends Component {
     return (
       <div className="banksContainer">
         <div className="bankCallToAction">
-          <h4>Entable is an SMS powered table banking platform that pairs underserved women without access to financial services to sponsors seeking complete transparency and direct impact.</h4>
+          <h4>Entable is an SMS (Tropo) powered table banking platform that pairs under-served women without access to financial services to sponsors seeking complete transparency and direct impact.</h4>
         </div>
         <div className="row bankRows">
           <div className="container">
