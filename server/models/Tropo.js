@@ -41,10 +41,11 @@ exports.trans = (req, res) => {
       if (members[call.sender] !== undefined) {
 
         var edit = banks.filter((curr) => curr.chair == members[call.sender]);
-        edit.push(call.input);
+        let trans = edit[0].transactions;
+        trans.push(call.input);
         console.log('edit: ', edit);
         return Bank.findOneAndUpdate({ chair: members[call.sender] },
-                                     { $set: { transactions: edit } });
+                                     { $set: { transactions: trans } });
       } else {
         console.log('in else');
         return res.end();
