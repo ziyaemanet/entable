@@ -60,12 +60,16 @@ exports.trans = (req, res) => {
 
 exports.member = (req, res) => {
   // console.log('TROPO MEMBER: ', req.body);
-  var call = parseCall(req.body);
+  var call = parseCallCSV(req.body);
   if (!call) return res.end();
 
   Bank.find({ chair: call.sender })
     .then((bank) => {
-      bank[0].members.push(call.input);
+      call.input.forEach((element) => {
+        bank[0].members.push(element);
+      });
+
+      //bank[0].members.push(call.input);
       var newMembers = bank[0].members;
       return Bank.findOneAndUpdate({ chair: call.sender },
                                    { $set: { members: newMembers } });
@@ -73,6 +77,26 @@ exports.member = (req, res) => {
     .then(() => res.end())
     .catch(() => res.end());
 };
+
+function parseCallCSV(body) {
+  var callObj = null;
+
+  try {
+    callObj = JSON.parse(body.call);
+  } catch (err) {
+    console.log(err);
+    return callObj;
+  }
+
+  var textArr = callObj.text.split('#');
+  var inputArr = textArr[1].split(',');
+
+  return {
+    type: textArr[0],
+    input: inputArr,
+    sender: callObj.sender,
+  };
+}
 
 function parseCall(body) {
   var callObj = null;
@@ -96,5 +120,5 @@ function parseCall(body) {
 exports.all = (req, res) => {
   Bank.find({}, (err, data) => {
     res.status(err ? 400 : 200).send(err || data);
-  })
-}
+  });
+};
