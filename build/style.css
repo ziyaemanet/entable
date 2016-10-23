@@ -336,6 +336,11 @@ highlight green - #27ae60
   justify-content: center;
 }
 
+.bankDetialImg {
+  width: 100%;
+  align-self: center;
+}
+
 .groupImg {
   align-self: center;
   padding: 50px;

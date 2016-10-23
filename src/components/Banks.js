@@ -218,7 +218,6 @@ export default class Banks extends Component {
               </div>
             </div>
           </div>
->>>>>>> ee4f4e5d3de08c333dce12cf7c77e10f38ab4131
       </div>
       </div>
     )
