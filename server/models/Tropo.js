@@ -23,7 +23,17 @@ exports.trans = (req, res) => {
 
 exports.member = (req, res) => {
   console.log('TROPO MEMBER: ', req.body);
-  res.end();
+  var call = parseCall(req.body);
+  if (!call) return res.end();
+
+  Bank.find({ chair: call.sender })
+    .then((bank) => {
+      console.log('bank: ', bank);
+      bank.members.push(call.input);
+      bank.save();
+      res.end();
+    })
+    .catch(() => res.end());
 };
 
 function parseCall(body) {

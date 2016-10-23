@@ -13,7 +13,7 @@ const webpackConfig = require('../webpack.config');
 
 // CONFIG MONGOOSE
 const mongoose = require('mongoose');
-// mongoose.Promise = Promise;
+mongoose.Promise = Promise;
 const MONGO_URI = 'mongodb://cat:hellokitty123@ds061246.mlab.com:61246/entable';
 
 mongoose.connect(MONGO_URI, (err) => {
