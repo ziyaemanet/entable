@@ -38,23 +38,23 @@ exports.trans = (req, res) => {
       console.log('members[call.sender]: ', members[call.sender]);
       console.log('typeof call.sender: ', typeof call.sender);
 
-      // if (members[call.sender] !== undefined) {
+      if (members[call.sender] !== undefined) {
 
         var edit = banks.filter((curr) => curr.chair == members[call.sender]);
         edit.transactions.push(call.input);
         console.log('edit: ', edit);
         return Bank.findOneAndUpdate({ chair: members[call.sender] },
                                      { $set: { transactions: edit.transactions } });
-      // } else {
-      //   console.log('in else');
-        // return res.end();
-      // }
+      } else {
+        console.log('in else');
+        return res.end();
+      }
     })
     .then(() => res.end())
     .catch(() => res.end());
 
 
-  res.end();
+  // res.end();
 };
 
 exports.member = (req, res) => {
