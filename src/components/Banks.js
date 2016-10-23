@@ -30,8 +30,90 @@ export default class Banks extends Component {
   render() {
     let { banks } = this.state;
     return (
-      <div>
-
+      <div className="banksContainer">
+        <div className="bankCallToAction">
+          <h4>Browse En<i>t</i>able's Latest Table Banks</h4>
+        </div>
+        <div className="row bankRows">
+        <div className="container">
+      {/*  MAP THIS  ENTIRE DIV TO GET A SINGLE BANK VIEW */}
+          <div className="col-md-4 text-center bkMargin">
+            <div className="bankSingleDisplay panel panel-default">
+              <img className="bankImg" src="enable-women-to-be-the-boss.jpg" width="100%"/>
+              <div className="imgTxtContainer">
+            </div>
+            <div className="bankViewBtnDisplay">
+              <button className="bankViewBtn">Fund Bank</button>
+              <button className="bankViewBtn">View Bank</button>
+            </div>
+              <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
+            </div>
+          </div>
+      {/*  MAP THIS  ENTIRE DIV TO GET A SINGLE BANK VIEW */}
+          <div className="col-md-4 text-center bkMargin">
+            <div className="bankSingleDisplay panel panel-default">
+              <img className="bankImg" src="enable-women-to-be-the-boss.jpg" width="100%" height="80%"/>
+              <div className="imgTxtContainer">
+            </div>
+            <div className="bankViewBtnDisplay">
+              <button className="bankViewBtn">Fund Bank</button>
+              <button className="bankViewBtn">View Bank</button>
+            </div>
+              <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
+            </div>
+          </div>
+          <div className="col-md-4 text-center bkMargin">
+            <div className="bankSingleDisplay panel panel-default">
+              <img className="bankImg" src="enable-women-to-be-the-boss.jpg" width="100%"/>
+              <div className="imgTxtContainer">
+            </div>
+            <div className="bankViewBtnDisplay">
+              <button className="bankViewBtn">Fund Bank</button>
+              <button className="bankViewBtn">View Bank</button>
+            </div>
+              <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
+            </div>
+          </div>
+          {/*  MAP THIS  ENTIRE DIV TO GET A SINGLE BANK VIEW */}
+          <div className="col-md-4 text-center bkMargin">
+            <div className="bankSingleDisplay panel panel-default">
+              <img className="bankImg" src="enable-women-to-be-the-boss.jpg" width="100%"/>
+              <div className="imgTxtContainer">
+            </div>
+            <div className="bankViewBtnDisplay">
+              <button className="bankViewBtn">Fund Bank</button>
+              <button className="bankViewBtn">View Bank</button>
+            </div>
+              <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
+            </div>
+          </div>
+      {/*  MAP THIS  ENTIRE DIV TO GET A SINGLE BANK VIEW */}
+          <div className="col-md-4 text-center bkMargin">
+            <div className="bankSingleDisplay panel panel-default">
+              <img className="bankImg" src="enable-women-to-be-the-boss.jpg" width="100%"/>
+              <div className="imgTxtContainer">
+            </div>
+            <div className="bankViewBtnDisplay">
+              <button className="bankViewBtn">Fund Bank</button>
+              <button className="bankViewBtn">View Bank</button>
+            </div>
+              <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
+            </div>
+          </div>
+          <div className="col-md-4 text-center bkMargin">
+            <div className="bankSingleDisplay panel panel-default">
+              <img className="bankImg" src="enable-women-to-be-the-boss.jpg" width="100%"/>
+              <div className="imgTxtContainer">
+            </div>
+            <div className="bankViewBtnDisplay">
+              <button className="bankViewBtn">Fund Bank</button>
+              <button className="bankViewBtn">View Bank</button>
+            </div>
+              <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     )
   }
