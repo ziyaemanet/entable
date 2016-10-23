@@ -26,7 +26,9 @@ export default class BankDetail extends Component {
 
 
   render() {
-      let fakeTimeStampDelete = moment().format('lll')
+      let fakeTimeStampDelete = moment().format('lll');
+
+
 
       let dummy = [
 
@@ -104,6 +106,64 @@ export default class BankDetail extends Component {
         {/* <BankData bankDetail={bankDetail} />
           <FinancialHistory financialHistory={bankDetail.history} />
         <Timeline timeline={bankDetail.timeline} /> */}
+
+    //
+    // let bankDetailArr = [
+    //   { member: '17148750963', date: '2016-02-21', borrowed: '0.00', payedIn: '12.78', description: 'Repaid Loan' },
+    //   { member: '19199601124', date: '2016-02-21', borrowed: '0.00', payedIn: '19.00', description: 'Repaid Loan' },
+    //   { member: '19259973408', date: '2016-02-21', borrowed: '16.75', payedIn: '00.00', description: 'For School Supplies' },
+    //   { member: '19253534139', date: '2016-02-21', borrowed: '25.80', payedIn: '00.00', description: 'Medicine' },
+    //   { member: '14802745839', date: '2016-02-21', borrowed: '0.00', payedIn: '12.78', description: 'Repaid Loan' }];
+
+      let transactions = [
+        { sender: '17148750963', date: '2016-02-21', amount: '12.78', description: 'Repaid Loan' },
+        { sender: '19199601124', date: '2016-02-21', amount: '19.00', description: 'Repaid Loan' },
+        { sender: '19259973408', date: '2016-02-21', amount: '-16.75', description: 'For School Supplies' },
+        { sender: '19253534139', date: '2016-02-21', amount: '-25.80', description: 'Medicine' },
+        { sender: '14802745839', date: '2016-02-21', amount: '12.78', description: 'Repaid Loan' }];
+
+
+    let {amountNumber} = this.props.location.query;
+    if(!amountNumber) amountNumber = 0;
+    let starting_Amount = 0;
+    let messageAmount = 0;
+    let rows;
+    if (transactions) {
+      rows = transactions.map((bankDetail, index) => {
+        let membersInfo = {'17148750963': 'Ziya Emanet',
+     '19199601124': 'Donovan Moore',
+     '19259973408': 'Richard Mands',
+     '19253534139': 'Joshua Maddox',
+     '14802745839': 'Holly Zhou'};
+        let borrowed = 0, payedIn = 0;
+        let { sender, date, amount, description } = bankDetail;
+        if(Number(amount) < 0){
+          console.log('amount:', amount)
+          borrowed = amount * (-1);
+          messageAmount += Number(amount);
+        } else {
+          payedIn = amount;
+          messageAmount += Number(amount);
+        }
+        starting_Amount = Number(amountNumber) + messageAmount;
+        return (
+          <tr key={index}>
+            <td>{membersInfo[sender]}</td>
+            <td>{date}</td>
+            <td>{borrowed}</td>
+            <td>{payedIn}</td>
+            <td>{description}</td>
+          </tr>
+        )
+      })
+    } else {
+      rows = <tr></tr>;
+    }
+
+
+
+
+
     return (
       <div>
         <div className="container-fluid">
@@ -123,103 +183,69 @@ export default class BankDetail extends Component {
                   <p>{dummy[5].Description1}</p>
                   <p>{dummy[5].Description2}</p>
                   <p>{dummy[5].Description3}</p>
-              </div>
-              <div className="moniesDisplay">
-                <div className="startingTotal">
-                  <h6>Starting Amount:</h6>
-                  <h4>$575.00</h4>
                 </div>
-                <div className="currentTotal">
-                  <h6>Currently Held:</h6>
-                  <h4>$875.00</h4>
+                <div className="moniesDisplay">
+                  <div className="startingTotal">
+                    <h6>Starting Amount:</h6>
+                    <h4>${amountNumber}</h4>
+                  </div>
+                  <div className="currentTotal">
+                    <h6>Currently Held:</h6>
+                    <h4>${starting_Amount}</h4>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="groupDonateBtn">
-          <button className="donateBtn">Add Funds to This Bank</button>
-        </div>
-        <div className="tableContainer">
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>Bank Member</th>
-                <th>Date</th>
-                <th>Borrowed Out</th>
-                <th>Payed In</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Jill</td>
-                <td>2016-02-21</td>
-                <td>0.00</td>
-                <td>12.78</td>
-                <td>Repaid Loan</td>
-              </tr>
-              <tr>
-                <td>Aide</td>
-                <td>2016-02-21</td>
-                <td>0.00</td>
-                <td>19.00</td>
-                <td>Repaid Loan</td>
-              </tr>
-              <tr>
-                <td>Sarah</td>
-                <td>2016-02-21</td>
-                <td>16.75</td>
-                <td>00.00</td>
-                <td>For School Supplies</td>
-              </tr>
-              <tr>
-                <td>Anile</td>
-                <td>2016-02-21</td>
-                <td>25.80</td>
-                <td>0.00</td>
-                <td>Medicine</td>
-              </tr>
-              <tr>
-                <td>Betrolis</td>
-                <td>2016-02-21</td>
-                <td>0.00</td>
-                <td>12.78</td>
-                <td>Repaid Loan</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="transactionHeader">
-          <h3>Bank History & Notes to Sponsors</h3>
-        </div>
-        <div className="transactionHistoryContainer text-center">
-          <div className="transactionItem">
-            <h6></h6>
-            <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
-            <p>Sarah's son started school with new books.</p>
-            <hr className="bankHistoryHr"/>
+          <div className="groupDonateBtn">
+            <button className="donateBtn">Add Funds to This Bank</button>
           </div>
-          <div className="transactionItem">
-            <h6></h6>
-            <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
-            <p>Anile's farm bought breeding pigs.</p>
-            <hr className="bankHistoryHr"/>
+          <div className="tableContainer">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>Bank Member</th>
+                  <th>Date</th>
+                  <th>Borrowed Out</th>
+                  <th>Payed In</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows}
+              </tbody>
+            </table>
           </div>
-          <div className="transactionItem">
-            <h6></h6>
-            <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
-            <p>Aide bought supplies to increase productivity of chicken operation.</p>
-            <hr className="bankHistoryHr"/>
+          <div className="transactionHeader">
+            <h3>Bank History & Notes to Sponsors</h3>
           </div>
-          <div className="transactionItem">
-            <h6></h6>
-            <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
-            <p>Sarah's son started school with new books.</p>
-            <hr className="bankHistoryHr"/>
+          <div className="transactionHistoryContainer text-center">
+            <div className="transactionItem">
+              <h6></h6>
+              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
+              <p>Sarah's son started school with new books.</p>
+              <hr className="bankHistoryHr"/>
+            </div>
+            <div className="transactionItem">
+              <h6></h6>
+              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
+              <p>Anile's farm bought breeding pigs.</p>
+              <hr className="bankHistoryHr"/>
+            </div>
+            <div className="transactionItem">
+              <h6></h6>
+              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
+              <p>Aide bought supplies to increase productivity of chicken operation.</p>
+              <hr className="bankHistoryHr"/>
+            </div>
+            <div className="transactionItem">
+              <h6></h6>
+              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
+              <p>Sarah's son started school with new books.</p>
+              <hr className="bankHistoryHr"/>
+            </div>
           </div>
         </div>
-      </div>
         <Footer />
       </div>
 
