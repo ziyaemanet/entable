@@ -10,25 +10,26 @@ export default class Info extends Component {
               <div className="num">
                 1
               </div>
-              <h6>Look around and find a bank that you're interested in funding</h6>
+              <h6>Women in underserved communities send an SMS to open a new bank and become 'bankers'</h6>
             </div>
             <div className="information">
               <div className="num">
                 2
               </div>
-              <h6>Look around and find a bank that you're interested in funding</h6>
+              <h6>Visitors browse banks, follow updates and donate directly to bankers using bitpesa to m-pesa</h6>
+              <h6>Using Tropo's SMS API they can submit transaction and status updates to  </h6>
             </div>
             <div className="information">
               <div className="num">
                 3
               </div>
-              <h6>Look around and find a bank that you're interested in funding</h6>
+              <h6>Using Tropo's SMS API they can submit transaction and status updates to  </h6>
             </div>
             <div className="information">
               <div className="num">
                 4
               </div>
-              <h6>Look around and find a bank that you're interested in funding</h6>
+              <h6>Bankers gather once per month to borrow, lend and update their banks at a time of their choosing</h6>
             </div>
           </div>
           <div className="infoFormContainer col-sm-6">

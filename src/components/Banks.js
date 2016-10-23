@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import BankStore from '../stores/BankStore';
 // import BankActions from  '../actions/BankActions';
+import { browserHistory } from 'react-router'
 
 export default class Banks extends Component {
   constructor() {
@@ -13,6 +14,9 @@ export default class Banks extends Component {
       {name:'bank5', image:'http://all4desktop.com/data_images/original/4240427-people.jpg' },
       {name:'bank6', image:'https://www.sadakafirm.com/wp-content/uploads/2015/02/8808947-sad-serious-five-business-people-standing-in-a-row-and-looking-at-camera-isolated-on-white-backgroun.jpg' }]
     };
+
+    this.toBank = this.toBank.bind(this)
+    this.toFund = this.toFund.bind(this)
   }
 
   // componentWillMount() {
@@ -27,12 +31,20 @@ export default class Banks extends Component {
   //   this.setState({ banks: BankStore.getBanks() });
   // }
 
+  toBank() {
+    browserHistory.push('/bank')
+  }
+
+  toFund() {
+    browserHistory.push('/donation')
+  }
+
   render() {
     let { banks } = this.state;
     return (
       <div className="banksContainer">
         <div className="bankCallToAction">
-          <h4>Browse En<i>t</i>able's Latest Table Banks</h4>
+          <h4>Entable is an SMS powered table banking platform that pairs underserved women without access to financial services to sponsors seeking complete transparency and direct impact.</h4>
         </div>
         <div className="row bankRows">
         <div className="container">
@@ -43,8 +55,8 @@ export default class Banks extends Component {
               <div className="imgTxtContainer">
             </div>
             <div className="bankViewBtnDisplay">
-              <button className="bankViewBtn">Fund Bank</button>
-              <button className="bankViewBtn">View Bank</button>
+              <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
+              <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
             </div>
               <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
             </div>
@@ -56,8 +68,8 @@ export default class Banks extends Component {
               <div className="imgTxtContainer">
             </div>
             <div className="bankViewBtnDisplay">
-              <button className="bankViewBtn">Fund Bank</button>
-              <button className="bankViewBtn">View Bank</button>
+              <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
+              <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
             </div>
               <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
             </div>
@@ -68,8 +80,8 @@ export default class Banks extends Component {
               <div className="imgTxtContainer">
             </div>
             <div className="bankViewBtnDisplay">
-              <button className="bankViewBtn">Fund Bank</button>
-              <button className="bankViewBtn">View Bank</button>
+              <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
+              <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
             </div>
               <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
             </div>
@@ -81,8 +93,8 @@ export default class Banks extends Component {
               <div className="imgTxtContainer">
             </div>
             <div className="bankViewBtnDisplay">
-              <button className="bankViewBtn">Fund Bank</button>
-              <button className="bankViewBtn">View Bank</button>
+              <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
+              <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
             </div>
               <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
             </div>
@@ -94,8 +106,8 @@ export default class Banks extends Component {
               <div className="imgTxtContainer">
             </div>
             <div className="bankViewBtnDisplay">
-              <button className="bankViewBtn">Fund Bank</button>
-              <button className="bankViewBtn">View Bank</button>
+              <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
+              <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
             </div>
               <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
             </div>
@@ -106,8 +118,8 @@ export default class Banks extends Component {
               <div className="imgTxtContainer">
             </div>
             <div className="bankViewBtnDisplay">
-              <button className="bankViewBtn">Fund Bank</button>
-              <button className="bankViewBtn">View Bank</button>
+              <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
+              <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
             </div>
               <p className="bankViewDesc">Started by Adia Colson, the women's bank of Homa Bay has an 96.7% payback rate and has grown by 189% in the 12 months since it started</p>
             </div>

@@ -9,6 +9,12 @@ button {
   font-weight: 800;
 }
 
+.btn, .btn-default {
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+}
+
 a {
   text-decoration: none;
   color: #fff;
@@ -79,6 +85,10 @@ highlight green - #27ae60
   justify-content: center;
 }
 
+.mainLogo {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
 .mainHeader {
   align-self: center;
   font-family: 'Ubuntu', sans-serif;
@@ -108,6 +118,14 @@ highlight green - #27ae60
    background-color: #27ae60;
    transition: .8s;
    box-shadow: none;
+
+}
+
+.mainNavLink {
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
 }
 
 /*----- Latest Banks View ----- */
@@ -386,9 +404,7 @@ highlight green - #27ae60
   background-color: #222;
   text-align: center;
 }
-.transactionHistoryContainer {
 
-}
 .transactionItem {
   margin-bottom: 25px;
 }
@@ -413,6 +429,11 @@ highlight green - #27ae60
   color: #fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.donationBankName form {
+  margin-bottom: 30px;
 }
 
 .bankImgBanner {
@@ -423,6 +444,56 @@ highlight green - #27ae60
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.donationOptions {
+  background-color: #222;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.giftBtnContainer {
+  
+}
+
+.giftBtn, .noBTcoins {
+  background-color: #2ecc71;
+  padding: 10px 40px 10px 40px;
+  text-transform: uppercase;
+  margin: 30px;
+  color: #fff;
+  width: 300px;
+}
+
+.btnFormBottom {
+
+  border-radius: none;
+  height: 40px;
+  margin-bottom: 50px
+
+}
+
+.btnFormBottom:hover {
+  background-color: #27ae60;
+  transition: .8s;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.transactionHeaderDonation {
+  padding: 5px 10px 15px 10px;
+  color: #222;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+} 
+
+.noBtnCoinsContainer {
+  
+}
+
+.noBTcoins {
+
 }
 
 

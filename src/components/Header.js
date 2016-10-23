@@ -10,8 +10,9 @@ export default class Header extends Component {
           <div className="row jm-intro">
             <div className="col-xs-12">
               <div className="jm-header-text">
+                <img src="entable_logo_final_dark.png" className="mainLogo" width="250px" />
                 <h1 className="mainHeader">Not A Seat At The Table But Ownership of It.</h1>
-                <h5 className="mainSubHeader">Table Banking That Liberates Communites by Liberating Women</h5>
+                <h5 className="mainSubHeader">Table Banking that puts women in full control of their finances. </h5>
                 <button className="mainBtn">Fund A Bank With No Middle Men</button>
               </div>
             </div>
