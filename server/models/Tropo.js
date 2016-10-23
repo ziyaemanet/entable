@@ -33,10 +33,10 @@ exports.trans = (req, res) => {
         });
       });
 
-      console.log('members: ', members);
-      console.log('call.sender: ', call.sender);
-      console.log('members[call.sender]: ', members[call.sender]);
-      console.log('typeof call.sender: ', typeof call.sender);
+      // console.log('members: ', members);
+      // console.log('call.sender: ', call.sender);
+      // console.log('members[call.sender]: ', members[call.sender]);
+      // console.log('typeof call.sender: ', typeof call.sender);
 
       if (members[call.sender] !== undefined) {
 
@@ -59,7 +59,7 @@ exports.trans = (req, res) => {
 };
 
 exports.member = (req, res) => {
-  console.log('TROPO MEMBER: ', req.body);
+  // console.log('TROPO MEMBER: ', req.body);
   var call = parseCall(req.body);
   if (!call) return res.end();
 
@@ -91,4 +91,10 @@ function parseCall(body) {
     input: textArr[1],
     sender: callObj.sender,
   };
+}
+
+exports.all = (req, res) => {
+  Bank.find({}, (err, data) => {
+    res.status(err ? 400 : 200).send(err || data);
+  })
 }
