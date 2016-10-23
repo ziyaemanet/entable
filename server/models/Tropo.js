@@ -54,7 +54,7 @@ exports.trans = (req, res) => {
         const edit = banks.filter((curr) => curr.chair === members[call.sender]);
         const trans = edit[0].transactions;
 
-        trans.push({ amount: call.input[0], description: call.input[1] });
+        trans.push({ amount: call.input[0], description: call.input[1], sender: call.sender });
         console.log('edit: ', edit);
         return Bank.findOneAndUpdate({ chair: members[call.sender] },
                                      { $set: { transactions: trans } });
@@ -144,6 +144,7 @@ function parseCall(body) {
 }
 
 exports.all = (req, res) => {
+  console.log('INSIDE ALL');
   Bank.find({}, (err, data) => {
     res.status(err ? 400 : 200).send(err || data);
   });

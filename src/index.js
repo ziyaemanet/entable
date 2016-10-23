@@ -14,6 +14,7 @@ import BankDetail7 from './components/BankDetail7';
 import Donation from './components/Donation';
 
 import API from './API';
+import BankStore from './stores/BankStore';
 
 render(
   <Router history={browserHistory}>
