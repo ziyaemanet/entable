@@ -32,8 +32,8 @@ exports.member = (req, res) => {
       console.log('call.input: ', call.input);
       bank[0].members.push(call.input);
       console.log('bank AFTER: ', bank);
-      bank.save();
       res.end();
+      return bank.save();
     })
     .catch(() => res.end());
 };
