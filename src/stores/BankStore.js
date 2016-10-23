@@ -13,8 +13,9 @@ class EntableStore extends EventEmitter {
     AppDispatcher.register((action) => {
       switch (action.type) {
         case 'RECEIVE_BANKS':
-          _banks = action.payload.banks;
-          console.log('STORE _banks: ', _banks);
+          let banks = action.payload.banks;
+          _banks = banks[0];
+          // console.log('STORE _banks: ', _banks);
           this.emit('CHANGE');
           break;
         default:

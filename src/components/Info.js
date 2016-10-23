@@ -42,7 +42,7 @@ export default class Info extends Component {
               <div className="form-group">
                 <input type="password" className="form-control" placeholder="Password"/>
               </div>
-              <button type="submit" className="btn btn-default btn-block btnHome">Sign in</button>
+              <button type="submit" className="btn btn-default btn-block btnHome">Learn More</button>
             </form>
           </div>
         </div>

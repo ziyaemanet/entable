@@ -107,7 +107,7 @@ export default class BankDetail2 extends Component {
           <div className="row">
             <div className="col-md-6 imgContainer">
               <div className="groupImg">
-                <img src={dummy[0].Images[0]} width="600px"/>
+                <img className="bankDetialImg" src={dummy[0].Images[0]}/>
               </div>
             </div>
             <div className="col-md-6 groupInfo">

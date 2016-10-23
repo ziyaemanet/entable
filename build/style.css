@@ -93,7 +93,7 @@ highlight green - #27ae60
 .mainHeader {
   align-self: center;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 3.5em; 
+  font-size: 3.5em;
   text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   font-weight: 800;
   text-align: center;
@@ -138,7 +138,7 @@ highlight green - #27ae60
 /*----- Latest Banks View ----- */
 
 .banksContainer {
-  
+
 }
 
 .bankCallToAction {
@@ -156,7 +156,7 @@ highlight green - #27ae60
 
 .bankSingleDisplay .panel .panel-default {
   padding: 20px;
-  margin: 0; 
+  margin: 0;
   display: flex;
 }
 
@@ -236,7 +236,7 @@ highlight green - #27ae60
 
 .form-control {
   border-radius: 0;
-  border: none; 
+  border: none;
   height: 40px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   text-align: center;
@@ -254,7 +254,12 @@ highlight green - #27ae60
   height: 40px;
 }
 
-.btn, .btn-default { 
+.bankDetialImg {
+width: 100%;
+align-self: center;
+}
+
+.btn, .btn-default {
   border-radius: 0;
   background-color: #2ecc71;
   border: none;
@@ -267,7 +272,7 @@ highlight green - #27ae60
   transition: .8s;
   color: #fff;
   text-transform: uppercase;
-} 
+}
 
 .infoHowItWorks{
   display: flex;
@@ -344,7 +349,7 @@ highlight green - #27ae60
 .groupImg {
   align-self: center;
   padding: 50px;
-} 
+}
 
 .groupInfo {
   display: flex;
@@ -360,7 +365,7 @@ highlight green - #27ae60
 .groupName {
   margin: 10px 15px;
   background-color: #2ecc71;
-  padding: 4px 10px 10px 10px; 
+  padding: 4px 10px 10px 10px;
   color: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   text-align: center;
@@ -396,7 +401,7 @@ highlight green - #27ae60
 }
 
 .donateBtn {
-  margin: 25px 15px; 
+  margin: 25px 15px;
   color: #fff;
   padding: 10px;
   height: 60px;
@@ -466,7 +471,7 @@ highlight green - #27ae60
 }
 
 .giftBtnContainer {
-  
+
 }
 
 .giftBtn, .noBTcoins {
@@ -498,10 +503,10 @@ highlight green - #27ae60
   color: #222;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
-} 
+}
 
 .noBtnCoinsContainer {
-  
+
 }
 
 .noBTcoins {
@@ -527,7 +532,7 @@ highlight green - #27ae60
 
 
 @media only screen and (max-width : 1200px) {
-  
+
 }
 
 @media only screen and (max-width : 979px) {

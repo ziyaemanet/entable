@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
-// import BankStore from '../stores/BankStore';
+import BankStore from '../stores/BankStore';
 import moment from 'moment'
 import Footer from './Footer'
 
 
 export default class BankDetail extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     banks: BankStore.getBanks(),
-  //   };
-  // }
-  //
-  // componentWillMount() {
-  //   BankStore.startListening(this._onChange);
-  // }
-  //
-  // componentWillUnmount() {
-  //   BankStore.stopListening(this._onChange);
-  // }
-  //
-  // _onChange = () => {
-  //   this.setState({ banks: BankStore.getBanks() });
-  // }
+  constructor() {
+    super();
+    this.state = {
+      banks: BankStore.getBanks(),
+    };
+    this._onChange = this._onChange.bind(this);
+  }
+
+  componentWillMount() {
+    BankStore.startListening(this._onChange);
+  }
+
+  componentWillUnmount() {
+    BankStore.stopListening(this._onChange);
+  }
+
+  _onChange() {
+    this.setState({ banks: BankStore.getBanks() });
+  }
 
 
   render() {
@@ -87,52 +88,31 @@ export default class BankDetail extends Component {
         Current: '$960'},
 
       ];
-    // let { banks } = this.state;
-    // // let id = this.location.query.id;
-    // let bankDetail;
-    // if (banks) {
-    //   bankDetail = banks.filter(bank => {
-    //     return bank.id === id;
-    //   });
-    // } else {
-    //   bankDetail = <div></div>;
-    // }
-        {/* <BankData bankDetail={bankDetail} />
-          <FinancialHistory financialHistory={bankDetail.history} />
-        <Timeline timeline={bankDetail.timeline} /> */}
-
-    //
-    // let bankDetailArr = [
-    //   { member: '17148750963', date: '2016-02-21', borrowed: '0.00', payedIn: '12.78', description: 'Repaid Loan' },
-    //   { member: '19199601124', date: '2016-02-21', borrowed: '0.00', payedIn: '19.00', description: 'Repaid Loan' },
-    //   { member: '19259973408', date: '2016-02-21', borrowed: '16.75', payedIn: '00.00', description: 'For School Supplies' },
-    //   { member: '19253534139', date: '2016-02-21', borrowed: '25.80', payedIn: '00.00', description: 'Medicine' },
-    //   { member: '14802745839', date: '2016-02-21', borrowed: '0.00', payedIn: '12.78', description: 'Repaid Loan' }];
-
-      let transactions = [
-        { sender: '17148750963', date: '2016-02-21', amount: '12.78', description: 'Repaid Loan' },
-        { sender: '19199601124', date: '2016-02-21', amount: '19.00', description: 'Repaid Loan' },
-        { sender: '19259973408', date: '2016-02-21', amount: '-16.75', description: 'For School Supplies' },
-        { sender: '19253534139', date: '2016-02-21', amount: '-25.80', description: 'Medicine' },
-        { sender: '14802745839', date: '2016-02-21', amount: '12.78', description: 'Repaid Loan' }];
-
-
+      // let transactions = [
+      //   { sender: '17148750963', date: '2016-02-21', amount: '12.78', description: 'Repaid Loan' },
+      //   { sender: '19199601124', date: '2016-02-21', amount: '19.00', description: 'Repaid Loan' },
+      //   { sender: '19259973408', date: '2016-02-21', amount: '-16.75', description: 'For School Supplies' },
+      //   { sender: '19253534139', date: '2016-02-21', amount: '-25.80', description: 'Medicine' },
+      //   { sender: '14802745839', date: '2016-02-21', amount: '12.78', description: 'Repaid Loan' }];
     let {amountNumber} = this.props.location.query;
     if(!amountNumber) amountNumber = 0;
     let starting_Amount = 0;
     let messageAmount = 0;
     let rows;
-    if (transactions) {
+    let {banks} = this.state;
+    if (banks) {
+    let { transactions } = banks;
+    // if (transactions) {
+    console.log('transactions:', transactions)
       rows = transactions.map((bankDetail, index) => {
-        let membersInfo = {'17148750963': 'Ziya Emanet',
-     '19199601124': 'Donovan Moore',
-     '19259973408': 'Richard Mands',
-     '19253534139': 'Joshua Maddox',
-     '14802745839': 'Holly Zhou'};
+    let membersInfo = {'17148750963': 'Ziya Emanet',
+       '19199601124': 'Donovan Moore',
+       '19259973408': 'Richard Mands',
+       '19253534139': 'Joshua Maddox',
+       '14802745839': 'Holly Zhou'};
         let borrowed = 0, payedIn = 0;
         let { sender, date, amount, description } = bankDetail;
         if(Number(amount) < 0){
-          console.log('amount:', amount)
           borrowed = amount * (-1);
           messageAmount += Number(amount);
         } else {
@@ -154,13 +134,15 @@ export default class BankDetail extends Component {
       rows = <tr></tr>;
     }
 
+
+
     return (
       <div>
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 imgContainer">
               <div className="groupImg">
-                <img src={dummy[5].Images[0]} width="600px"/>
+                <img className="bankDetialImg" src={dummy[5].Images[0]}/>
               </div>
             </div>
             <div className="col-md-6 groupInfo">
