@@ -154,10 +154,6 @@ export default class BankDetail extends Component {
       rows = <tr></tr>;
     }
 
-
-
-
-
     return (
       <div>
         <div className="container-fluid">
