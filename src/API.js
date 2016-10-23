@@ -3,6 +3,7 @@ import EntableActions from './actions/EntableActions';
 import axios from 'axios';
 const io = require('socket.io-client');
 
+console.log('IN API');
 var socket = io();
 socket.on('stream', function(data) {
   console.log('DATA: ', data);

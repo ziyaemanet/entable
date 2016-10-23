@@ -13,6 +13,8 @@ import BankDetail6 from './components/BankDetail6';
 import BankDetail7 from './components/BankDetail7';
 import Donation from './components/Donation';
 
+import API from './API';
+
 render(
   <Router history={browserHistory}>
     <Route path="/" component={Navbar}>
