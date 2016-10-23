@@ -10,20 +10,11 @@ export default class Header extends Component {
           <div className="row jm-intro">
             <div className="col-xs-12">
               <div className="jm-header-text">
-                <img className="img-responsive img-circle jm-header-img" src="assets/imgs/JoshuaMaddox.jpg" alt="Head Shot of Joshua Maddox" />
-                <h1></h1>
-                <p></p>
+                <h1 className="mainHeader">Not A Seat At The Table But Ownership of It.</h1>
+                <h5 className="mainSubHeader">Table Banking That Liberates Communites by Liberating Women</h5>
+                <button className="mainBtn">Fund A Bank With No Middle Men</button>
               </div>
             </div>
-            <div className="col-sm-4">
-              <button className="btn jm-btn-header"><a href="https://drive.google.com/file/d/0BxpDt5ltPm9eNk5lS2UtNktSTlk/view?usp=sharing" target="_blank">RESUME</a></button>
-            </div>
-            <div className="col-sm-4">
-              <button className="btn jm-btn-header"><a href="http://cinderhouse.com.au" target="_blank">DESIGN</a></button>
-            </div>{/* --- COL --- */}
-            <div className="col-sm-4">
-              <button className="btn jm-btn-header"><a href="https://github.com/JoshuaMaddox" target="_blank">GITHUB</a></button>
-            </div>{/* --- COL --- */} 
           </div>{/* --- ROW --- */}
         </div>{/* --- CONTAINER --- */}
       </header>
