@@ -18,6 +18,33 @@ exports.create = (req, res) => {
 
 exports.trans = (req, res) => {
   console.log('TROPO TRANS: ', req.body);
+
+  var call = parseCall(req.body);
+  if (!call) return res.end();
+
+  Bank.find({})
+    .then((banks) => {
+      var members = {};
+
+      banks.forEach((bank) => {
+        bank.members.forEach((member) => {
+          members[member] = bank.chair;
+        });
+      });
+
+      if (members[call.sender]) {
+        var edit = banks.filter((curr) => curr.chair == members[call.sender]);
+        edit.transactions.push(call.input);
+        return Bank.findOneAndUpdate({ chair: members[call.sender] },
+                                     { $set: { transactions: edit.transactions } });
+      } else {
+        return res.end();
+      }
+    })
+    .then(() => res.end())
+    .catch(() => res.end());
+
+
   res.end();
 };
 
@@ -28,11 +55,8 @@ exports.member = (req, res) => {
 
   Bank.find({ chair: call.sender })
     .then((bank) => {
-      console.log('bank: ', bank);
-      console.log('call.input: ', call.input);
       bank[0].members.push(call.input);
       var newMembers = bank[0].members;
-      console.log('bank AFTER: ', bank);
       return Bank.findOneAndUpdate({ chair: call.sender },
                                    { $set: { members: newMembers } });
     })
