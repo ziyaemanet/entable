@@ -40,7 +40,8 @@ exports.trans = (req, res) => {
 
       if (members[call.sender] !== undefined) {
 
-        var edit = banks.filter((curr) => curr.chair == members[call.sender]);
+        // var edit = banks.filter((curr) => curr.chair == members[call.sender]);
+        let edit = ['test array'];
         edit.transactions.push(call.input);
         console.log('edit: ', edit);
         return Bank.findOneAndUpdate({ chair: members[call.sender] },
