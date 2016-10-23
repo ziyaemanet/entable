@@ -45,6 +45,7 @@ exports.trans = (req, res) => {
         return Bank.findOneAndUpdate({ chair: members[call.sender] },
                                      { $set: { transactions: edit.transactions } });
       } else {
+        console.log('in else');
         return res.end();
       }
     })
