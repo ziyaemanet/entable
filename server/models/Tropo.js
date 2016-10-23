@@ -35,6 +35,8 @@ exports.trans = (req, res) => {
 
       console.log('members: ', members);
       console.log('call.sender: ', call.sender);
+      console.log('members[call.sender]: ', members[call.sender]);
+      console.log('typeof call.sender: ', typeof call.sender);
       if (members[call.sender]) {
         var edit = banks.filter((curr) => curr.chair == members[call.sender]);
         edit.transactions.push(call.input);
