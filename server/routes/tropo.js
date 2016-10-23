@@ -3,8 +3,9 @@ const router = express.Router();
 
 const Tropo = require('../models/Tropo');
 
-router.route('/')
-  .post(Tropo.receiveText);
+router.post('/create', Tropo.create);
+router.post('/trans', Tropo.trans);
+router.post('/member', Tropo.member);
 
 
 module.exports = router;
