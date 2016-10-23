@@ -31,10 +31,12 @@ exports.member = (req, res) => {
       console.log('bank: ', bank);
       console.log('call.input: ', call.input);
       bank[0].members.push(call.input);
+      var newMembers = bank[0].members;
       console.log('bank AFTER: ', bank);
-      //res.end();
-      return bank.save();
+      return Bank.findOneAndUpdate({ chair: call.sender },
+                                   { $set: { members: newMembers } });
     })
+    .then(() => res.end())
     .catch(() => res.end());
 };
 
