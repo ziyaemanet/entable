@@ -7,10 +7,18 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-require('dotenv').config();
+// require('dotenv').config();
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config');
 
+// CONFIG MONGOOSE
+const mongoose = require('mongoose');
+mongoose.Promise = Promise;
+const MONGO_URI = 'mongodb://cat:hellokitty123@ds061246.mlab.com:61246/entable';
+
+mongoose.connect(MONGO_URI, (err) => {
+  console.log(err || `Mongo connected to ${MONGO_URI}`);
+});
 
 // APP DECLARATION
 const app = express();
@@ -30,12 +38,16 @@ app.use(express.static('build'));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+  res.handle = (err, data) => res.status( err ? 400 : 200).send(err || data);
+  next();
+});
 
 // ROUTES
 app.use('/api', require('./routes/api'));
 
 app.get('*', (req, res) => {
-  let filepath = path.resolve('./build/index.html');
+  var filepath = path.resolve('./build/index.html');
   res.sendFile(filepath);
 });
 
