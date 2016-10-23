@@ -1,9 +1,9 @@
-const Bank = require('./Bank');
+var Bank = require('./Bank');
 
 exports.create = (req, res) => {
   console.log('TROPO CREATE: ', req.body);
 
-  const call = parseCall(req.body);
+  var call = parseCall(req.body);
   if (!call) return res.end();
 
   Bank.create({ name: call.input,
@@ -27,7 +27,7 @@ exports.member = (req, res) => {
 };
 
 function parseCall(body) {
-  let callObj = null;
+  var callObj = null;
 
   try {
     callObj = JSON.parse(body.call);
@@ -36,7 +36,7 @@ function parseCall(body) {
     return callObj;
   }
 
-  const textArr = callObj.text.split('#');
+  var textArr = callObj.text.split('#');
 
   return {
     type: textArr[0],
