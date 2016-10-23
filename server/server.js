@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-require('dotenv').config();
+// require('dotenv').config();
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config');
 
@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', require('./routes/api'));
 
 app.get('*', (req, res) => {
-  let filepath = path.resolve('./build/index.html');
+  var filepath = path.resolve('./build/index.html');
   res.sendFile(filepath);
 });
 

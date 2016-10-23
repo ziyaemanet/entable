@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/tropo', require('./tropo'));
+const Tropo = require('../models/Tropo');
+
+router.route('/')
+  .post(Tropo.receiveText);
+
 
 module.exports = router;
