@@ -36,7 +36,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));
 
 // SOCKETIO
-let socketEmitter;
+var socketEmitter;
 io.on('connection', (socket) => {
   console.log('SOCKET ON');
   socketEmitter = (type, data) => socket.emit(type, data);
