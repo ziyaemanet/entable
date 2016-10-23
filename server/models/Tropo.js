@@ -29,7 +29,7 @@ exports.member = (req, res) => {
   Bank.find({ chair: call.sender })
     .then((bank) => {
       console.log('bank: ', bank);
-      bank.members.push(call.input);
+      bank[0].members.push(call.input);
       bank.save();
       res.end();
     })
