@@ -19,7 +19,7 @@ exports.create = (req, res) => {
 exports.trans = (req, res) => {
   console.log('TROPO TRANS: ', req.body);
 
-  var call = parseCall(req.body);
+  var call = parseCallCSV(req.body);
   if (!call) return res.end();
 
   Bank.find({})
@@ -42,7 +42,8 @@ exports.trans = (req, res) => {
 
         const edit = banks.filter((curr) => curr.chair === members[call.sender]);
         const trans = edit[0].transactions;
-        trans.push(call.input);
+
+        trans.push({ amount: call.input[0], description: call.input[1] });
         console.log('edit: ', edit);
         return Bank.findOneAndUpdate({ chair: members[call.sender] },
                                      { $set: { transactions: trans } });
