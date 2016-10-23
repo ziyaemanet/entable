@@ -5,7 +5,7 @@ const io = require('socket.io-client');
 
 console.log('IN API');
 var socket = io();
-socket.on('stream', function(data) {
+socket.on('banks', function(data) {
   console.log('DATA: ', data);
   // ServerActions.recieveStream(data);
 });
