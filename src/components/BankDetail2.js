@@ -28,6 +28,8 @@ export default class BankDetail2 extends Component {
   render() {
       let fakeTimeStampDelete = moment().format('lll')
 
+       this.document.window.scrollTo(0, 0);
+
       let dummy = [
 
           {Name: 'Bank of Sauri',

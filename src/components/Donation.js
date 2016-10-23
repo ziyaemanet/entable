@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import BankStore from '../stores/BankStore';
 import moment from 'moment'
 import Footer from './Footer'
+import { browserHistory } from 'react-router';
 
 
 export default class Donation extends Component {
@@ -10,6 +11,7 @@ export default class Donation extends Component {
     this.state = {
       // banks: BankStore.getBanks(),
     };
+    this._onSubmit = this._onSubmit.bind(this);
   }
 
   // componentWillMount() {
@@ -23,6 +25,12 @@ export default class Donation extends Component {
   // _onChange = () => {
   //   this.setState({ banks: BankStore.getBanks() });
   // }
+
+  _onSubmit(e) {
+    e.preventDefault();
+    let amount = this.refs.amount.value;
+    browserHistory.push({pathname: '/bank', query:{amountNumber: amount}})
+  }
 
 
   render() {
@@ -40,7 +48,7 @@ export default class Donation extends Component {
         <DonationForm bankDetail={bankDetail} /> */}
 
     let mainBankImage = {
-      backgroundImage: 'url(enable-women-to-be-the-boss.jpg)', 
+      backgroundImage: 'url(enable-women-to-be-the-boss.jpg)',
     }
 
     let fakeTimeStampDelete = moment().format('lll')
@@ -54,22 +62,22 @@ export default class Donation extends Component {
               <h2>{bankName}</h2>
               <h5>96% of your donation goes directly to the owners of this bank.<br />4% covers USD to Bitcoin to Mpesa transactions fees of third party money handlers.</h5>
             </div>
-            <form className="infoForm">
+            <form className="infoForm" onSubmit={this._onSubmit}>
               <div className="form-group">
-                <label className="sr-only" for="exampleInputEmail3">Supporter Email</label>
-                <input type="email" className="form-control" id="exampleInputEmail3" placeholder="Supporter Email"/>
+                <label className="sr-only" htmlFor="exampleInputEmail3">Supporter Email</label>
+                <input type="email" className="form-control" id="exampleInputEmail3" defaultValue="sample@gmail.com" />
               </div>
               <div className="form-group">
-                <label className="sr-only" for="exampleInputPassword3">Bit Coin Address</label>
-                <input type="password" className="form-control" id="exampleInputPassword3" placeholder="Bit Coin Address"/>
+                <label className="sr-only" htmlFor="exampleInputPassword3">Bit Coin Address</label>
+                <input type="text" className="form-control" id="exampleInputPassword3" defaultValue="19Ms9tlqtcqAJ1ue36e9kjnyzkkLy18EQuBY" />
               </div>
               <div className="form-group">
-                <label className="sr-only" for="exampleInputPassword3">Supporter's Name</label>
-                <input type="password" className="form-control" id="exampleInputPassword3" placeholder="Supporter's Name"/>
+                <label className="sr-only" htmlFor="exampleInputPassword3">Supporter's Name</label>
+                <input type="text" className="form-control" id="exampleInputPassword3" defaultValue="Holly Zhou" />
               </div>
               <div className="form-group">
-                <label className="sr-only" for="exampleInputPassword3">Optional Message to Bankers</label>
-                <input type="password" className="form-control" id="exampleInputPassword3" placeholder="Optional Message to Bankers"/>
+                <label className="sr-only" htmlFor="exampleInputPassword3">Amount</label>
+                <input type="text" className="form-control" id="exampleInputPassword3" placeholder="200" ref="amount" />
               </div>
               <button type="submit" className="btn btn-default btn-block btnFormBottom">Send Payment</button>
             </form>
@@ -88,25 +96,25 @@ export default class Donation extends Component {
           <div className="transactionHistoryContainer text-center">
             <div className="transactionItem">
               <h6></h6>
-              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>  
+              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
               <p>Sarah's son started school with new books.</p>
               <hr className="bankHistoryHr"/>
             </div>
             <div className="transactionItem">
               <h6></h6>
-              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>  
+              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
               <p>Anile's farm bought breeding pigs.</p>
               <hr className="bankHistoryHr"/>
             </div>
             <div className="transactionItem">
               <h6></h6>
-              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>  
+              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
               <p>Aide bought supplies to increase productivity of chicken operation.</p>
               <hr className="bankHistoryHr"/>
             </div>
             <div className="transactionItem">
               <h6></h6>
-              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>  
+              <p><span className="timeStamp">{fakeTimeStampDelete}</span> <span className="bankerName">  Betty Hascal - <i>Bank Manager</i></span></p>
               <p>Sarah's son started school with new books.</p>
               <hr className="bankHistoryHr"/>
             </div>

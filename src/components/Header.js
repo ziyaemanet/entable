@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
 
 
 export default class Header extends Component {
+
+  
+
 
   render() {
     return (
@@ -11,9 +15,9 @@ export default class Header extends Component {
             <div className="col-xs-12">
               <div className="jm-header-text">
                 <img src="entable_logo_final_dark.png" className="mainLogo" width="250px" />
-                <h1 className="mainHeader">Not A Seat At The Table But Ownership of It.</h1>
+                <h1 className="mainHeader">Not a Seat at the Table but Ownership of It.</h1>
                 <h5 className="mainSubHeader">Table Banking that puts women in full control of their finances. </h5>
-                <button className="mainBtn">Fund A Bank With No Middle Men</button>
+                <Link to={'/donation'}className="mainBtn">Fund A Bank With No Middle Men</Link>
               </div>
             </div>
           </div>{/* --- ROW --- */}

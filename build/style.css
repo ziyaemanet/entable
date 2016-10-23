@@ -83,6 +83,7 @@ highlight green - #27ae60
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 .mainLogo {
@@ -95,6 +96,7 @@ highlight green - #27ae60
   font-size: 3.5em; 
   text-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   font-weight: 800;
+  text-align: center;
 }
 
 .mainSubHeader {
@@ -105,9 +107,13 @@ highlight green - #27ae60
   font-weight: 500;
 }
 
+
 .mainBtn {
+  margin: 20px auto;
+  display: inline-block;
+  align-self: center;
   background-color: #2ecc71;
-  width: 50%
+  max-width: 500px;
   border: none !important;
   padding: 1em 2.5em;
   font-size: 1.5em;
@@ -118,6 +124,7 @@ highlight green - #27ae60
    background-color: #27ae60;
    transition: .8s;
    box-shadow: none;
+   color: #fff;
 
 }
 
@@ -145,6 +152,7 @@ highlight green - #27ae60
 .bkMargin {
   margin-bottom: 15px;
 }
+
 
 .bankSingleDisplay .panel .panel-default {
   padding: 20px;
@@ -235,11 +243,10 @@ highlight green - #27ae60
   -webkit-appearance: none;
 }
 
-
-
-
 .information {
   color: #fff;
+  width: 90%;
+  text-align: center;
 }
 
 .btnHome {
@@ -327,6 +334,11 @@ highlight green - #27ae60
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.bankDetialImg {
+  width: 100%;
+  align-self: center;
 }
 
 .groupImg {
