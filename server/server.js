@@ -22,7 +22,10 @@ mongoose.connect(MONGO_URI, (err) => {
 
 // APP DECLARATION
 const app = express();
-const server = http.createServer(app);
+// const server = http.createServer(app);
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
 
 //WEBPACK CONFIG
 const compiler = webpack(webpackConfig);
@@ -32,6 +35,17 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 app.use(require('webpack-hot-middleware')(compiler));
 
+// SOCKETIO
+let socketEmitter;
+io.on('connection', (socket) => {
+  console.log('SOCKET ON');
+  socketEmitter = (type, data) => socket.emit(type, data);
+});
+
+app.use((req, res, next) => {
+  res.socketEmitter = socketEmitter;
+  next();
+});
 
 // GENERAL MIDDLEWARE
 app.use(express.static('build'));

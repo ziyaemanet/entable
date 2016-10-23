@@ -9,11 +9,22 @@ exports.create = (req, res) => {
   Bank.create({ name: call.input,
                chair: call.sender,
                members: [],
-               transactions: [] },
-  (err) => {
-    if (err) console.log(err);
-    return res.end();
-  });
+               transactions: [] })
+    .then(() => {
+      // res.end()
+      return Bank.find({});
+    })
+    .then((banks) => {
+      res.socketEmitter('banks', banks);
+      res.end();
+    })
+    .catch(() => res.end());
+
+
+  // (err) => {
+  //   if (err) console.log(err);
+  //   return res.end();
+  // });
 };
 
 exports.trans = (req, res) => {
@@ -52,7 +63,14 @@ exports.trans = (req, res) => {
       //   return res.end();
       }
     })
-    .then(() => res.end())
+    .then(() => {
+      // res.end()
+      return Bank.find({});
+    })
+    .then((banks) => {
+      res.socketEmitter('banks', banks);
+      res.end();
+    })
     .catch(() => res.end());
 
 
@@ -75,7 +93,14 @@ exports.member = (req, res) => {
       return Bank.findOneAndUpdate({ chair: call.sender },
                                    { $set: { members: newMembers } });
     })
-    .then(() => res.end())
+    .then(() => {
+      // res.end()
+      return Bank.find({});
+    })
+    .then((banks) => {
+      res.socketEmitter('banks', banks);
+      res.end();
+    })
     .catch(() => res.end());
 };
 
