@@ -23,7 +23,7 @@ export default class Footer extends Component {
           </div>
         </footer>
         <div className='container-fluid credits'>
-          <p>A project by: Holly Zhou - Ziya Emanet - Donavon Moore - Richard Mands - Joshua Maddox </p>
+          {/* <p>A project by: Holly Zhou - Ziya Emanet - Donavon Moore - Richard Mands - Joshua Maddox - Tobiah Rex</p> */}
         </div>
       </div>
   )

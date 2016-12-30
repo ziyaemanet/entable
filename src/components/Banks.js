@@ -161,7 +161,7 @@ export default class Banks extends Component {
                 </div>
                 <div className="bankViewBtnDisplay">
                   <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
-                  <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
+                  <button className="bankViewBtn" onClick={this.toBank2}>View Bank</button>
                 </div>
                 <p className="bankViewDesc">{dummy[0].Description1} {dummy[0].Description2}</p>
               </div>
@@ -174,7 +174,7 @@ export default class Banks extends Component {
                 </div>
                 <div className="bankViewBtnDisplay">
                   <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
-                  <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
+                  <button className="bankViewBtn" onClick={this.toBank3}>View Bank</button>
                 </div>
                 <p className="bankViewDesc">{dummy[1].Description1} {dummy[1].Description2}</p>
               </div>
@@ -187,7 +187,7 @@ export default class Banks extends Component {
                 </div>
                 <div className="bankViewBtnDisplay">
                   <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
-                  <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
+                  <button className="bankViewBtn" onClick={this.toBank4}>View Bank</button>
                 </div>
                 <p className="bankViewDesc">{dummy[2].Description1} {dummy[2].Description2}</p>
               </div>
@@ -200,7 +200,7 @@ export default class Banks extends Component {
                 </div>
                 <div className="bankViewBtnDisplay">
                   <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
-                  <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
+                  <button className="bankViewBtn" onClick={this.toBank5}>View Bank</button>
                 </div>
                 <p className="bankViewDesc">{dummy[3].Description1} {dummy[3].Description2}</p>
               </div>
@@ -212,7 +212,7 @@ export default class Banks extends Component {
                 </div>
                 <div className="bankViewBtnDisplay">
                   <button className="bankViewBtn" onClick={this.toFund}>Fund Bank</button>
-                  <button className="bankViewBtn" onClick={this.toBank}>View Bank</button>
+                  <button className="bankViewBtn" onClick={this.toBank6}>View Bank</button>
                 </div>
                 <p className="bankViewDesc">{dummy[4].Description1} {dummy[4].Description2}</p>
               </div>

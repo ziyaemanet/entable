@@ -24,11 +24,12 @@ export default class BankDetail2 extends Component {
   //   this.setState({ banks: BankStore.getBanks() });
   // }
 
+  componentDidMount() {
+    window.scroll(0, 0);
+  }
 
   render() {
       let fakeTimeStampDelete = moment().format('lll')
-
-       this.document.window.scrollTo(0, 0);
 
       let dummy = [
 

@@ -17,6 +17,10 @@ export default class BankDetail extends Component {
     BankStore.startListening(this._onChange);
   }
 
+  componentDidMount() {
+    window.scroll(0, 0);
+  }
+
   componentWillUnmount() {
     BankStore.stopListening(this._onChange);
   }
@@ -24,7 +28,6 @@ export default class BankDetail extends Component {
   _onChange() {
     this.setState({ banks: BankStore.getBanks() });
   }
-
 
   render() {
       let fakeTimeStampDelete = moment().format('lll');
