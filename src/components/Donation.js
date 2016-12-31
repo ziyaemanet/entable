@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-// import BankStore from '../stores/BankStore';
+import BankStore from '../stores/BankStore';
 import moment from 'moment'
 import Footer from './Footer'
 import { browserHistory } from 'react-router';
-
+import API from '../API';
 
 export default class Donation extends Component {
   constructor() {
     super();
     this.state = {
-      // banks: BankStore.getBanks(),
+      banks: BankStore.getBanks(),
     };
     this._onSubmit = this._onSubmit.bind(this);
   }
@@ -33,7 +33,10 @@ export default class Donation extends Component {
   _onSubmit(e) {
     e.preventDefault();
     let amount = this.refs.amount.value;
-    browserHistory.push({pathname: '/bank', query:{amountNumber: amount}})
+    const { banks } = this.state;
+    console.log('banks: ', banks);
+    API.fund({ details: { amount, description: 'Donation', sender: 'Donor', date: moment().format('MM/DD/YY') }, chair: banks[0].chair });
+    browserHistory.push({ pathname: '/bank' });
   }
 
 
@@ -92,7 +95,7 @@ export default class Donation extends Component {
                 <label className="sr-only" htmlFor="exampleInputPassword3">Amount</label>
                 <input type="text" className="form-control" id="exampleInputPassword3" placeholder="donation amount" ref="amount" />
               </div>
-              <button type="submit" className="btn btn-default btn-block btnFormBottom">Transfer Funds To Bank</button>
+              <button type="submit" className="btn btn-default btn-block btnFormBottom">Send Funds To Bank</button>
             </form>
           </div>
           {/* <div className="donationOptions">

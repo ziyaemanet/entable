@@ -1,4 +1,5 @@
 var Bank = require('./Bank');
+const moment = require('moment');
 
 exports.create = (req, res) => {
   console.log('TROPO CREATE: ', req.body);
@@ -25,6 +26,23 @@ exports.create = (req, res) => {
   //   if (err) console.log(err);
   //   return res.end();
   // });
+};
+
+exports.fund = (req, res) => {
+  Bank.find({})
+  .then((banks) => {
+    const edit = banks.filter(curr => curr.chair === req.body.chair)[0].transactions;
+    edit.push(req.body.details);
+
+    return Bank.findOneAndUpdate({ chair: req.body.chair },
+                                 { $set: { transactions: edit } });
+  })
+  .then(() => Bank.find({}))
+  .then((banks) => {
+    res.socketEmitter('banks', banks);
+    res.end();
+  })
+  .catch(() => res.end());
 };
 
 exports.trans = (req, res) => {
@@ -54,7 +72,7 @@ exports.trans = (req, res) => {
         const edit = banks.filter((curr) => curr.chair === members[call.sender]);
         const trans = edit[0].transactions;
 
-        trans.push({ amount: call.input[0], description: call.input[1], sender: call.sender });
+        trans.push({ amount: call.input[0], description: call.input[1], sender: call.sender, date: moment().format('MM/DD/YY') });
         console.log('edit: ', edit);
         return Bank.findOneAndUpdate({ chair: members[call.sender] },
                                      { $set: { transactions: trans } });

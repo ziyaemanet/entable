@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BankStore from '../stores/BankStore';
 import moment from 'moment'
 import Footer from './Footer'
-
+import { browserHistory } from 'react-router';
 
 export default class BankDetail extends Component {
   constructor() {
@@ -103,8 +103,8 @@ export default class BankDetail extends Component {
     let messageAmount = 0;
     let rows;
     let {banks} = this.state;
-    if (banks) {
-    let { transactions } = banks;
+    if (banks[0]) {
+    let { transactions } = banks[0];
     // if (transactions) {
     console.log('transactions:', transactions)
       rows = transactions.map((bankDetail, index) => {
@@ -125,7 +125,7 @@ export default class BankDetail extends Component {
         starting_Amount = Number(amountNumber) + messageAmount;
         return (
           <tr key={index}>
-            <td>{membersInfo[sender]}</td>
+            <td>{membersInfo[sender] || sender}</td>
             <td>{date}</td>
             <td>{borrowed}</td>
             <td>{payedIn}</td>
@@ -173,13 +173,13 @@ export default class BankDetail extends Component {
             </div>
           </div>
           <div className="groupDonateBtn">
-            <button className="donateBtn">Add Funds to This Bank</button>
+            <button onClick={() => browserHistory.push('/donation')} className="donateBtn">Add Funds to This Bank</button>
           </div>
           <div className="tableContainer">
             <table className="table table-striped">
               <thead>
                 <tr>
-                  <th>Bank Member</th>
+                  <th>Source</th>
                   <th>Date</th>
                   <th>Borrowed Out</th>
                   <th>Payed In</th>
