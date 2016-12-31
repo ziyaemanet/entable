@@ -14,6 +14,10 @@ export default class Donation extends Component {
     this._onSubmit = this._onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    window.scroll(0, 0);
+  }
+
   // componentWillMount() {
   //   BankStore.startListening(this._onChange);
   // }
@@ -53,7 +57,7 @@ export default class Donation extends Component {
 
     let fakeTimeStampDelete = moment().format('lll')
 
-    let bankName = "Women's Bank of Anlos"
+    let bankName = "Ruhiira Bank"
     return (
       <div>
         <div className=" donationContainer">
@@ -64,32 +68,41 @@ export default class Donation extends Component {
             </div>
             <form className="infoForm" onSubmit={this._onSubmit}>
               <div className="form-group">
-                <label className="sr-only" htmlFor="exampleInputEmail3">Supporter Email</label>
-                <input type="email" className="form-control" id="exampleInputEmail3" defaultValue="sample@gmail.com" />
-              </div>
-              <div className="form-group">
-                <label className="sr-only" htmlFor="exampleInputPassword3">Bit Coin Address</label>
-                <input type="text" className="form-control" id="exampleInputPassword3" defaultValue="19Ms9tlqtcqAJ1ue36e9kjnyzkkLy18EQuBY" />
-              </div>
-              <div className="form-group">
                 <label className="sr-only" htmlFor="exampleInputPassword3">Supporter's Name</label>
-                <input type="text" className="form-control" id="exampleInputPassword3" defaultValue="Holly Zhou" />
+                <input type="text" className="form-control" id="exampleInputPassword3" placeholder="first name last name" />
               </div>
+              <div className="form-group">
+                <label className="sr-only" htmlFor="exampleInputEmail3">Supporter Email</label>
+                <input type="email" className="form-control" id="exampleInputEmail3" placeholder="email address" />
+              </div>
+              <div className="form-group">
+                <label className="sr-only" htmlFor="exampleInputPassword3">Card Number</label>
+                <input type="text" className="form-control" id="exampleInputPassword3" placeholder="16 digit card number" />
+              </div>
+
+              <div className="form-group">
+                <div className="form-inline cardDetails">
+                  <input type="text" className="form-control cardDetailsInput" placeholder="expiration month" />
+                  <input type="text" className="form-control cardDetailsInput" placeholder="expiration year" />
+                  <input type="text" className="form-control cardDetailsInput" placeholder="CVV2 / CVC2" />
+                </div>
+              </div>
+
               <div className="form-group">
                 <label className="sr-only" htmlFor="exampleInputPassword3">Amount</label>
-                <input type="text" className="form-control" id="exampleInputPassword3" placeholder="200" ref="amount" />
+                <input type="text" className="form-control" id="exampleInputPassword3" placeholder="donation amount" ref="amount" />
               </div>
-              <button type="submit" className="btn btn-default btn-block btnFormBottom">Send Payment</button>
+              <button type="submit" className="btn btn-default btn-block btnFormBottom">Transfer Funds To Bank</button>
             </form>
           </div>
-          <div className="donationOptions">
+          {/* <div className="donationOptions">
             <div className="giftBtnContainer">
-              <button className="giftBtn">Send As A Gift</button>
+            <button className="giftBtn">Send As A Gift</button>
             </div>
             <div className="noBtnCoinsContainer">
-              <button className="noBTcoins">I Don't Have Bitcoin</button>
+            <button className="noBTcoins">I Don't Have Bitcoin</button>
             </div>
-          </div>
+          </div> */}
           <div className="transactionHeaderDonation">
             <h3>Bank History & Notes to Sponsors</h3>
           </div>

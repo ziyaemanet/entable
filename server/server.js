@@ -14,7 +14,7 @@ const webpackConfig = require('../webpack.config');
 // CONFIG MONGOOSE
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-const MONGO_URI = 'mongodb://cat:hellokitty123@ds061246.mlab.com:61246/entable';
+const MONGO_URI = 'mongodb://hello:kitty@ds141368.mlab.com:41368/entable';
 
 mongoose.connect(MONGO_URI, (err) => {
   console.log(err || `Mongo connected to ${MONGO_URI}`);

@@ -441,6 +441,14 @@ align-self: center;
 
 /*------ Donations Page ------*/
 
+.cardDetails {
+  text-align: center;
+}
+
+.cardDetailsInput {
+  width: 33%!important;
+}
+
 .donationBankName {
   align-self: center;
   color: #fff;
