@@ -4,7 +4,7 @@ import moment from 'moment'
 import Footer from './Footer'
 import { browserHistory } from 'react-router';
 
-export default class BankDetail7 extends Component {
+export default class BankDetail extends Component {
   constructor() {
     super();
     this.state = {

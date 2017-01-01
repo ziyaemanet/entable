@@ -4,7 +4,7 @@ import moment from 'moment'
 import Footer from './Footer'
 import { browserHistory } from 'react-router';
 
-export default class BankDetail extends Component {
+export default class BankDetail2 extends Component {
   constructor() {
     super();
     this.state = {
@@ -103,8 +103,12 @@ export default class BankDetail extends Component {
     let messageAmount = 0;
     let rows;
     let {banks} = this.state;
-    if (banks[0]) {
-    let { transactions } = banks[0];
+
+    let currBank = banks.filter(bank => bank.name === 'bank0');
+
+    if (currBank[0]) {
+    let { transactions } = currBank[0];
+    transactions.reverse();
     // if (transactions) {
     console.log('transactions:', transactions)
       rows = transactions.map((bankDetail, index) => {
@@ -162,7 +166,7 @@ export default class BankDetail extends Component {
                 <div className="moniesDisplay">
                   <div className="startingTotal">
                     <h6>Starting Amount:</h6>
-                    <h4>${amountNumber}</h4>
+                    <h4>$175</h4>
                   </div>
                   <div className="currentTotal">
                     <h6>Currently Held:</h6>

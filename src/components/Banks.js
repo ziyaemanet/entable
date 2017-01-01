@@ -64,6 +64,26 @@ export default class Banks extends Component {
     browserHistory.push('/donation')
   }
 
+  toFund2() {
+    browserHistory.push('/donation2')
+  }
+
+  toFund3() {
+    browserHistory.push('/donation3')
+  }
+
+  toFund4() {
+    browserHistory.push('/donation4')
+  }
+
+  toFund5() {
+    browserHistory.push('/donation5')
+  }
+
+  toFund6() {
+    browserHistory.push('/donation6')
+  }
+
   render() {
 
     let dummy = [
