@@ -5,7 +5,7 @@ import Footer from './Footer'
 import { browserHistory } from 'react-router';
 import API from '../API';
 
-export default class Donation extends Component {
+export default class Donation3 extends Component {
   constructor() {
     super();
     this.state = {
@@ -35,9 +35,9 @@ export default class Donation extends Component {
     let amount = this.refs.amount.value;
     const { banks } = this.state;
     console.log('banks: ', banks);
-    let currBank = banks.filter(bank => bank.name === 'bank0');
+    let currBank = banks.filter(bank => bank.name === 'bank2');
     API.fund({ details: { amount, description: 'Donation', sender: 'Donor', date: moment().format('MM/DD/YY') }, chair: currBank[0].chair });
-    browserHistory.push({ pathname: '/bank' });
+    browserHistory.push({ pathname: '/bank3' });
   }
 
 
@@ -61,7 +61,7 @@ export default class Donation extends Component {
 
     let fakeTimeStampDelete = moment().format('lll')
 
-    let bankName = "Ruhiira Bank"
+    let bankName = "Dertu Village Bank";
     return (
       <div>
         <div className=" donationContainer">

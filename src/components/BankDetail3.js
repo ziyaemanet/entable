@@ -177,7 +177,7 @@ export default class BankDetail3 extends Component {
             </div>
           </div>
           <div className="groupDonateBtn">
-            <button onClick={() => browserHistory.push('/donation2')} className="donateBtn">Add Funds to This Bank</button>
+            <button onClick={() => browserHistory.push('/donation3')} className="donateBtn">Add Funds to This Bank</button>
           </div>
           <div className="tableContainer">
             <table className="table table-striped">

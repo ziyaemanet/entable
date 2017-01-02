@@ -37,7 +37,7 @@ export default class Info extends Component {
             </div>
             <form className="infoForm">
               <div className="form-group">
-                <input type="email" className="form-control" placeholder="enter your email address for future updates"/>
+                <input type="email" className="form-control" placeholder="email address"/>
               </div>
               {/* <div className="form-group">
                 <input type="password" className="form-control" placeholder="Password"/>

@@ -17,7 +17,7 @@ export default class Header extends Component {
                 <img src="entable_logo_final_dark.png" className="mainLogo" width="250px" />
                 <h1 className="mainHeader">Not a Seat at the Table but Ownership of It.</h1>
                 <h5 className="mainSubHeader">Table Banking that puts women in full control of their finances. </h5>
-                <Link to={'/donation'}className="mainBtn">Fund Banks With No Middle Men</Link>
+                <Link to={'/'}className="mainBtn">Fund Banks With No Middle Men</Link>
               </div>
             </div>
           </div>{/* --- ROW --- */}
