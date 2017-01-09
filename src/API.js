@@ -25,6 +25,11 @@ const API = {
     axios.post('/api/tropo/fund', transaction)
       .catch(console.error);
   },
+
+  subscribe(email) {
+    axios.post('/api/email', email)
+      .catch(console.error);
+  },
 };
 
 export default API;

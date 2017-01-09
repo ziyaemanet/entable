@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
+import API from '../API';
 
 export default class Info extends Component {
+  constructor(){
+    super();
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    let { email } = this.refs;
+    // console.log('email: ', email.value);
+    API.subscribe({ email: email.value });
+    alert('You are now subscribed to recieve future updates from Entable. Thanks for your interest!');
+    email.value = '';
+  }
+
   render() {
     return (
       <div className="contianer-fliud">
@@ -35,9 +50,9 @@ export default class Info extends Component {
             <div className="infoTextHeader">
               <h4>Learn How Table Banking Changes Communities</h4>
             </div>
-            <form className="infoForm">
+            <form className="infoForm" onSubmit={this.onSubmit}>
               <div className="form-group">
-                <input type="email" className="form-control" placeholder="email address"/>
+                <input ref="email" type="email" className="form-control" placeholder="email address"/>
               </div>
               {/* <div className="form-group">
                 <input type="password" className="form-control" placeholder="Password"/>

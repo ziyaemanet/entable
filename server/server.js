@@ -7,14 +7,14 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-// require('dotenv').config();
+require('dotenv').config({ silent: true });
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config');
 
 // CONFIG MONGOOSE
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-const MONGO_URI = 'mongodb://hello:kitty@ds141368.mlab.com:41368/entable';
+const MONGO_URI = process.env.MONGO;
 
 mongoose.connect(MONGO_URI, (err) => {
   console.log(err || `Mongo connected to ${MONGO_URI}`);
